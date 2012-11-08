@@ -16,13 +16,14 @@
 
 package org.broadleafcommerce.admin.client.seo;
 
-import org.broadleafcommerce.openadmin.client.i18nConstants;
+import com.google.gwt.i18n.client.ConstantsWithLookup;
 
 /**
  * @author Jerry Ocanas (jocanas)
  */
 //@DefaultLocale("en_US")
-public interface SeoMessages extends i18nConstants {
+public interface SeoMessages extends ConstantsWithLookup {
+//public interface SeoMessages extends i18nConstants {
 //    public String TwitterCardImpl_TwitterCard();
 //    public String TwitterCardImpl_TwitterUrl();
 //    public String TwitterCardImpl_TwitterTitle();
