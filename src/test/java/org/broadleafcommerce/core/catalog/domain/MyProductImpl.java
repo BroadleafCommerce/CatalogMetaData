@@ -11,7 +11,7 @@ import javax.persistence.Embedded;
 /**
  * @author Jerry Ocanas (jocanas)
  */
-public class MyProductImpl extends ProductImpl implements SeoMetaData, TwitterCard {
+public class MyProductImpl extends ProductImpl implements Product, SeoMetaData, TwitterCard {
 
     @Embedded
     protected SeoMetaData embeddableSeoMetaData = new SeoMetaDataImpl();
