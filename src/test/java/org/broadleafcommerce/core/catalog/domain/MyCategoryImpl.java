@@ -4,6 +4,7 @@ import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
 import org.broadleafcommerce.seo.domain.catalog.TwitterCard;
 import org.broadleafcommerce.seo.domain.catalog.TwitterCardImpl;
+import org.hibernate.annotations.Entity;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embedded;
@@ -11,6 +12,7 @@ import javax.persistence.Embedded;
 /**
  * @author Jerry Ocanas (jocanas)
  */
+@Entity
 public class MyCategoryImpl extends CategoryImpl implements Category, SeoMetaData, TwitterCard {
 
     @Embedded
