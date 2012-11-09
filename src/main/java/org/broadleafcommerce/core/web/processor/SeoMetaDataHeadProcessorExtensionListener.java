@@ -25,7 +25,7 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
 import java.util.Map;
 
 /**
- * An extension of the head processor that will add the Seo Meta Data fields to the head.
+ * An extension of the head processor that will add the Seo Meta Data fields to the head context.
  * 
  * <ul>
  * 	<li><b>metaDescription</b> - Optional, Content for the Meta-Description tag</li>

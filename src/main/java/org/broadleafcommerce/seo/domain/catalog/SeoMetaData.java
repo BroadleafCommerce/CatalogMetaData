@@ -23,23 +23,63 @@ import javax.annotation.Nullable;
  */
 public interface SeoMetaData {
 
+    /**
+     * Gets the meta-description.
+     *
+     * @return the metaDescription
+     */
     @Nullable
     public String getMetaDescription();
 
+    /**
+     * Sets the metaDescription.
+     *
+     * @param metaDescription
+     */
     public void setMetaDescription(@Nullable String metaDescription);
 
+    /**
+     * Gets the meta-keywords.
+     *
+     * @return metaKeywords
+     */
     @Nullable
     public String getMetaKeywords();
 
+    /**
+     * Sets the metaKeywords.
+     *
+     * @param metaKeywords
+     */
     public void setMetaKeywords(@Nullable String metaKeywords);
 
+    /**
+     * Gets the meta-Robot.
+     *
+     * @return metaRobot
+     */
     @Nullable
     public String getMetaRobot();
 
+    /**
+     * Sets the metaRobot.
+     *
+     * @param metaRobot
+     */
     public void setMetaRobot(@Nullable String metaRobot);
 
+    /**
+     * Gets the title fragment.
+     *
+     * @return titleFragment
+     */
     @Nullable
     public String getTitleFragment();
 
+    /**
+     *  Sets the titleFragment.
+     *
+     * @param titleFragment
+     */
     public void setTitleFragment(@Nullable String titleFragment);
 }

@@ -25,7 +25,7 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
 import java.util.Map;
 
 /**
- * An extension of the head processor that will add the Seo Meta Data fields to the head.
+ * An extension of the head processor that will add the Twitter Card Data fields to the head context.
  * 
  * <ul>
  * 	<li><b>twitterCard</b> - Optional, If no twitter:card value is set, we will default to a summary card.</li>
