@@ -28,6 +28,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class SeoMetaDataImpl implements SeoMetaData {
 
+    private static final long serialVersionUID = 1L;
+
     @Column(name = "META_DESCRIPTION")
     @AdminPresentation(friendlyName = "Seo_Meta_Description", order=3, group = "Seo_Group",groupOrder=2)
     protected String metaDescription;

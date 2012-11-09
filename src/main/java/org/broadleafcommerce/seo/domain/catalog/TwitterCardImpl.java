@@ -28,6 +28,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class TwitterCardImpl implements TwitterCard {
 
+    private static final long serialVersionUID = 1L;
+
     @Column(name = "TWITTER_CARD")
     @AdminPresentation(friendlyName = "TwitterCardImpl_TwitterCard", order=21, group = "Seo_Properties")
     protected String twitterCard;
