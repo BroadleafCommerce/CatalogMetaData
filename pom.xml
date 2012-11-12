@@ -26,20 +26,20 @@
     </parent>
 
     <groupId>org.broadleafcommerce</groupId>
-    <artifactId>blc-seo</artifactId>
+    <artifactId>broadleaf-seo</artifactId>
     <name>BroadleafCommerce SEO</name>
     <description>BroadleafCommerce SEO</description>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <blc.version>2.1.0-SNAPSHOT</blc.version>
+        <blc.version>2.2.0-SNAPSHOT</blc.version>
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:BroadleafCommerce/PriceList.git</connection>
-        <developerConnection>scm:git:git@github.com:BroadleafCommerce/PriceList.git</developerConnection>
-        <url>https://github.com/BroadleafCommerce/PriceList</url>
+        <connection>scm:git:git@github.com:BroadleafCommerce/blc-seo.git</connection>
+        <developerConnection>scm:git:git@github.com:BroadleafCommerce/blc-seo.git</developerConnection>
+        <url>https://github.com/BroadleafCommerce/Seo</url>
     </scm>
 
     <url>http://www.broadleafcommerce.org</url>
@@ -272,6 +272,20 @@
             <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.broadleafcommerce</groupId>
+            <artifactId>broadleaf-open-admin-platform</artifactId>
+            <version>${blc.version}</version>
+            <scope>compile</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.broadleafcommerce</groupId>
+            <artifactId>broadleaf-admin-module</artifactId>
+            <version>${blc.version}</version>
+            <scope>compile</scope>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -304,5 +318,6 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+
     </dependencies>
 </project>
