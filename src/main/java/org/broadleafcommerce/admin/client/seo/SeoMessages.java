@@ -30,9 +30,13 @@ public interface SeoMessages extends ConstantsWithLookup {
     public String Seo_Meta_Robot();
     public String Seo_Title_Fragment();
 
-    public String TwitterCardImpl_TwitterCard();
-    public String TwitterCardImpl_TwitterUrl();
-    public String TwitterCardImpl_TwitterTitle();
-    public String TwitterCardImpl_TwitterDescription();
-    public String TwitterCardImpl_TwitterImage();
+    public String Seo_Group_Twitter();
+
+    public String TwitterDataImpl_TwitterSite();
+    public String TwitterDataImpl_TwitterCreator();
+    public String TwitterDataImpl_TwitterCard();
+    public String TwitterDataImpl_TwitterUrl();
+    public String TwitterDataImpl_TwitterTitle();
+    public String TwitterDataImpl_TwitterDescription();
+    public String TwitterDataImpl_TwitterImage();
 }

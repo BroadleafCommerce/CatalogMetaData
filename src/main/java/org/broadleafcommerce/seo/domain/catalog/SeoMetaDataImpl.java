@@ -31,19 +31,19 @@ public class SeoMetaDataImpl implements SeoMetaData {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "META_DESCRIPTION")
-    @AdminPresentation(friendlyName = "Seo_Meta_Description", order=3, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Meta_Description", order=11, group = "Seo_Group",groupOrder=2)
     protected String metaDescription;
 
     @Column(name = "META_KEYWORDS")
-    @AdminPresentation(friendlyName = "Seo_Meta_Keywords", order=4, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Meta_Keywords", order=12, group = "Seo_Group",groupOrder=2)
     protected String metaKeywords;
 
     @Column(name = "META_ROBOT")
-    @AdminPresentation(friendlyName = "Seo_Meta_Robot", order=5, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Meta_Robot", order=13, group = "Seo_Group",groupOrder=2)
     protected String metaRobot;
 
     @Column(name = "TITLE_FRAGMENT")
-    @AdminPresentation(friendlyName = "Seo_Title_Fragment", order=6, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Title_Fragment", order=14, group = "Seo_Group",groupOrder=2)
     protected String titleFragment;
 
     @Override

@@ -30,6 +30,8 @@ public class MyCategoryTest extends TestCase {
     private String metaRobot = "NOINDEX, NOFOLLOW";
     private String titleFragment = "Test Title Fragment";
 
+    private String twitterSite = "@broadleaf";
+    private String twitterCreator = "@broadleaf";
     private String twitterCard = "summary";
     private String twitterUrl = "http\\\\:www.test.com\\";
     private String twitterTitle = "Twitter Title Test";
@@ -45,6 +47,8 @@ public class MyCategoryTest extends TestCase {
         myCategory.setMetaRobot(metaRobot);
         myCategory.setTitleFragment(titleFragment);
 
+        myCategory.setTwitterSite(twitterSite);
+        myCategory.setTwitterCreator(twitterCreator);
         myCategory.setTwitterCard(twitterCard);
         myCategory.setTwitterUrl(twitterUrl);
         myCategory.setTwitterTitle(twitterTitle);
@@ -72,6 +76,12 @@ public class MyCategoryTest extends TestCase {
 
     public void testTwitterCardFields() throws Exception{
         String testField;
+
+        testField = myCategory.getTwitterSite();
+        assertEquals(twitterSite, testField);
+
+        testField = myCategory.getTwitterCreator();
+        assertEquals(twitterCreator, testField);
 
         testField = myCategory.getTwitterCard();
         assertEquals(twitterCard, testField);

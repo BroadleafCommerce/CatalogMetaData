@@ -21,7 +21,37 @@ import javax.annotation.Nullable;
 /**
  * @author Jerry Ocanas (jocanas)
  */
-public interface TwitterCard {
+public interface TwitterData {
+
+    /**
+     * Gets the twitter:site content.
+     *
+     * @return twitterSite
+     */
+    @Nullable
+    public String getTwitterSite();
+
+    /**
+     * Sets the twitter:site content.
+     *
+     * @param twitterSite
+     */
+    public void setTwitterSite(@Nullable String twitterSite);
+
+    /**
+     * Gets the twitter:creator content.
+     *
+     * @return twitterCreator
+     */
+    @Nullable
+    public String getTwitterCreator();
+
+    /**
+     * Sets the twitter:creator content.
+     *
+     * @param twitterCreator
+     */
+    public void setTwitterCreator(@Nullable String twitterCreator);
 
     /**
      * Gets the twitter:card content.

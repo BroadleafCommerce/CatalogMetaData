@@ -26,29 +26,59 @@ import javax.persistence.Embeddable;
  * @author Jerry Ocanas (jocanas)
  */
 @Embeddable
-public class TwitterCardImpl implements TwitterCard {
+public class TwitterDataImpl implements TwitterData {
 
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "TWITTER_SITE")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterSite", order=21, group = "Seo_Group_Twitter")
+    protected String twitterSite;
+
+    @Column(name = "TWITTER_CREATOR")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterCreator", order=22, group = "Seo_Group_Twitter")
+    protected String twitterCreator;
+
     @Column(name = "TWITTER_CARD")
-    @AdminPresentation(friendlyName = "TwitterCardImpl_TwitterCard", order=21, group = "Seo_Properties")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterCard", order=23, group = "Seo_Group_Twitter")
     protected String twitterCard;
 
     @Column(name = "TWITTER_URL")
-    @AdminPresentation(friendlyName = "TwitterCardImpl_TwitterUrl", order=22, group = "Seo_Properties")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterUrl", order=24, group = "Seo_Group_Twitter")
     protected String twitterUrl;
 
     @Column(name = "TWITTER_TITLE")
-    @AdminPresentation(friendlyName = "TwitterCardImpl_TwitterTitle", order=23, group = "Seo_Properties")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterTitle", order=25, group = "Seo_Group_Twitter")
     protected String twitterTitle;
 
     @Column(name = "TWITTER_DESCRIPTION")
-    @AdminPresentation(friendlyName = "TwitterCardImpl_TwitterDescription", order=24, group = "Seo_Properties")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterDescription", order=26, group = "Seo_Group_Twitter")
     protected String twitterDescription;
 
     @Column(name = "TWITTER_IMAGE")
-    @AdminPresentation(friendlyName = "TwitterCardImpl_TwitterImage", order=25, group = "Seo_Properties")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterImage", order=27, group = "Seo_Group_Twitter")
     protected String twitterImage;
+
+    @Override
+    @Nullable
+    public String getTwitterSite() {
+        return twitterSite;
+    }
+
+    @Override
+    public void setTwitterSite(@Nullable String twitterSite) {
+        this.twitterSite = twitterSite;
+    }
+
+    @Override
+    @Nullable
+    public String getTwitterCreator() {
+        return twitterCreator;
+    }
+
+    @Override
+    public void setTwitterCreator(@Nullable String twitterCreator) {
+        this.twitterCreator = twitterCreator;
+    }
 
     @Override
     @Nullable
