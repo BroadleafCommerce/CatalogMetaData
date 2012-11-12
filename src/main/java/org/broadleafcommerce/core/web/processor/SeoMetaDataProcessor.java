@@ -64,9 +64,11 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
         try {
             if(seoMetaDataAttribute != null){
                 SeoMetaDataImpl seoMetaData = (SeoMetaDataImpl) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
-                metaDescription = seoMetaData.getMetaDescription();
-                metaKeywords = seoMetaData.getMetaKeywords();
-                metaRobot = seoMetaData.getMetaRobot();
+                if(seoMetaData != null){
+                    metaDescription = seoMetaData.getMetaDescription();
+                    metaKeywords = seoMetaData.getMetaKeywords();
+                    metaRobot = seoMetaData.getMetaRobot();
+                }
             }
         } catch (TemplateProcessingException e) {
             // Do nothing.

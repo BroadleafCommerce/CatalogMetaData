@@ -72,13 +72,15 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
         try {
             if(twitterDataAttribute != null){
                 TwitterDataImpl twitterData = (TwitterDataImpl) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
-                twitterCard = twitterData.getTwitterCard();
-                twitterUrl = twitterData.getTwitterUrl();
-                twitterTitle = twitterData.getTwitterTitle();
-                twitterDescription = twitterData.getTwitterDescription();
-                twitterImage = twitterData.getTwitterImage();
-                twitterSite = twitterData.getTwitterSite();
-                twitterCreator = twitterData.getTwitterCreator();
+                if (twitterData != null){
+                    twitterCard = twitterData.getTwitterCard();
+                    twitterUrl = twitterData.getTwitterUrl();
+                    twitterTitle = twitterData.getTwitterTitle();
+                    twitterDescription = twitterData.getTwitterDescription();
+                    twitterImage = twitterData.getTwitterImage();
+                    twitterSite = twitterData.getTwitterSite();
+                    twitterCreator = twitterData.getTwitterCreator();
+                }
             }
         } catch (TemplateProcessingException e) {
             // Do nothing.
