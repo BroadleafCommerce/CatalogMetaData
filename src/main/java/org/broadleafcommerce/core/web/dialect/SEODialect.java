@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.broadleafcommerce.core.web.dialect2;
+package org.broadleafcommerce.core.web.dialect;
 
 import org.thymeleaf.dialect.AbstractDialect;
 import org.thymeleaf.processor.IProcessor;

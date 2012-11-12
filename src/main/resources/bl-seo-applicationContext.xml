@@ -19,7 +19,7 @@
         </property>
     </bean>
 
-    <bean id="seoDialect" class="org.broadleafcommerce.core.web.dialect2.SEODialect">
+    <bean id="seoDialect" class="org.broadleafcommerce.core.web.dialect.SEODialect">
         <property name="processors">
             <set>
                 <ref bean="blImageProcessor" />
