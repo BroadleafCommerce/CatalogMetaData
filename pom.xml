@@ -37,9 +37,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:BroadleafCommerce/blc-seo.git</connection>
-        <developerConnection>scm:git:git@github.com:BroadleafCommerce/blc-seo.git</developerConnection>
-        <url>https://github.com/BroadleafCommerce/Seo</url>
+        <connection>scm:git:git@github.com:BroadleafCommerce/CatalogMetaData.git</connection>
+        <developerConnection>scm:git:git@github.com:BroadleafCommerce/CatalogMetaData.git</developerConnection>
+        <url>https://github.com/BroadleafCommerce/CatalogMetaData</url>
     </scm>
 
     <url>http://www.broadleafcommerce.org</url>
