@@ -16,23 +16,22 @@
 
 package org.broadleafcommerce.admin.client.seo;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.ConstantsWithLookup;
-import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
+import org.broadleafcommerce.openadmin.client.AbstractModule;
+import org.broadleafcommerce.openadmin.client.BLCMain;
 
 /**
  * @author Jerry Ocanas (jocanas)
  */
-@DefaultLocale("en_US")
-public interface SeoMessages extends ConstantsWithLookup {
+public class SeoModule extends AbstractModule {
 
-    public String Seo_Meta_Description();
-    public String Seo_Meta_Keywords();
-    public String Seo_Meta_Robot();
-    public String Seo_Title_Fragment();
+    public void onModuleLoad() {
+        addConstants(GWT.<ConstantsWithLookup>create(SeoMessages.class));
 
-    public String TwitterCardImpl_TwitterCard();
-    public String TwitterCardImpl_TwitterUrl();
-    public String TwitterCardImpl_TwitterTitle();
-    public String TwitterCardImpl_TwitterDescription();
-    public String TwitterCardImpl_TwitterImage();
+        setModuleTitle(BLCMain.getMessageManager().getString("merchandisingModuleTitle"));
+        setModuleKey("BLCMerchandising");
+
+        registerModule();
+    }
 }
