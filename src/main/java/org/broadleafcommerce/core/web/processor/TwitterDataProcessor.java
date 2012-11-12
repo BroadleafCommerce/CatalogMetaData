@@ -16,6 +16,7 @@
 
 package org.broadleafcommerce.core.web.processor;
 
+import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
@@ -25,10 +26,19 @@ import org.thymeleaf.processor.element.AbstractElementProcessor;
 import org.thymeleaf.standard.expression.StandardExpressionProcessor;
 
 /**
- * Processor that creates meta-tags for a Twitter Card.
+ * Processor that creates meta-tags with Twitter Data.
  *
  * This processor is to be used within <head></head> context.
  *
+ * <ul>
+ * 	<li><b>twitterSite</b> - Optional, @username for the website used in the card footer..</li>
+ * 	<li><b>twitterCreator</b> - Optional, @username for the content creator / author.</li>
+ * 	<li><b>twitterCard</b> - Optional, If no twitter:card value is set, we will default to a summary card.</li>
+ * 	<li><b>twitterUrl</b> - Canonical URL of the card content.</li>
+ * 	<li><b>twitterTitle</b> - Title should be concise and will be truncated at 70 characters.</li>
+ * 	<li><b>twitterDescription</b> - A description that concisely summarizes the content of the page, as appropriate for presentation within a Tweet.</li>
+ * 	<li><b>twitterImage</b> - Optional, URL to a unique image representing the content of the page.</li>
+ * </ul>
  *
  * @author Jerry Ocanas (jocanas)
  */
@@ -50,40 +60,53 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
     @Override
     protected ProcessorResult processElement(Arguments arguments, Element element) {
 
-        String twitterCard = element.getAttributeValue("twitterCard");
-        String twitterUrl = element.getAttributeValue("twitterUrl");
-        String twitterTitle = element.getAttributeValue("twitterTitle");
-        String twitterDescription = element.getAttributeValue("twitterDescription");
-        String twitterImage = element.getAttributeValue("twitterImage");
+        String twitterDataAttribute = element.getAttributeValue("twitterData");
+        String twitterCard = null;
+        String twitterUrl = null;
+        String twitterTitle = null;
+        String twitterDescription = null;
+        String twitterImage = null;
+        String twitterSite = null;
+        String twitterCreator = null;
 
         try {
-            if(twitterCard != null){
-                twitterCard = (String) StandardExpressionProcessor.processExpression(arguments, twitterCard);
-            }
-            if(twitterUrl != null){
-                twitterUrl = (String) StandardExpressionProcessor.processExpression(arguments, twitterUrl);
-            }
-            if(twitterTitle != null){
-                twitterTitle = (String) StandardExpressionProcessor.processExpression(arguments, twitterTitle);
-            }
-            if(twitterDescription != null){
-                twitterDescription = (String) StandardExpressionProcessor.processExpression(arguments, twitterDescription);
-            }
-            if(twitterImage != null){
-                twitterImage = (String) StandardExpressionProcessor.processExpression(arguments, twitterImage);
+            if(twitterDataAttribute != null){
+                TwitterDataImpl twitterData = (TwitterDataImpl) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
+                twitterCard = twitterData.getTwitterCard();
+                twitterUrl = twitterData.getTwitterUrl();
+                twitterTitle = twitterData.getTwitterTitle();
+                twitterDescription = twitterData.getTwitterDescription();
+                twitterImage = twitterData.getTwitterImage();
+                twitterSite = twitterData.getTwitterSite();
+                twitterCreator = twitterData.getTwitterCreator();
             }
         } catch (TemplateProcessingException e) {
             // Do nothing.
         }
 
-        // Replace the <blc:twittercard> node with <meta> tags
-        element.getParent().insertAfter(element, createMetaTagElement("twitter:image", twitterImage));
-        element.getParent().insertAfter(element, createMetaTagElement("twitter:description", twitterDescription));
-        element.getParent().insertAfter(element, createMetaTagElement("twitter:title", twitterTitle));
-        element.getParent().insertAfter(element, createMetaTagElement("twitter:url", twitterUrl));
-        element.getParent().insertAfter(element, createMetaTagElement("twitter:card", twitterCard));
+        // Replace the <blc:twittercard> node with <meta> tags; include only if not null
+        if(twitterCreator != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:creator", twitterCreator));
+        }
+        if(twitterSite != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:site", twitterSite));
+        }
+        if(twitterImage != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:image", twitterImage));
+        }
+        if(twitterDescription != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:description", twitterDescription));
+        }
+        if(twitterTitle != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:title", twitterTitle));
+        }
+        if(twitterUrl != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:url", twitterUrl));
+        }
+        if(twitterCard != null){
+            element.getParent().insertAfter(element, createMetaTagElement("twitter:card", twitterCard));
+        }
         element.getParent().removeChild(element);
-
         return ProcessorResult.OK;
     }
 

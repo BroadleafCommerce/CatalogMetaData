@@ -14,7 +14,7 @@
         <property name="listeners">
                <list>
                    <bean class="org.broadleafcommerce.core.web.processor.SeoMetaDataHeadProcessorExtensionListener" />
-                   <bean class="org.broadleafcommerce.core.web.processor.TwitterCardHeadProcessorExtensionListener" />
+                   <bean class="org.broadleafcommerce.core.web.processor.TwitterDataHeadProcessorExtensionListener" />
                </list>
         </property>
     </bean>
@@ -23,6 +23,7 @@
         <property name="processors">
             <set>
                 <ref bean="blImageProcessor" />
+                <ref bean="blSeoMetaDataProcessor" />
                 <ref bean="blTwitterDataProcessor" />
             </set>
         </property>

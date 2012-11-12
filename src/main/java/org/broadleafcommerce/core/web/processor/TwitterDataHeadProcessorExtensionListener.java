@@ -17,7 +17,7 @@
 package org.broadleafcommerce.core.web.processor;
 
 import org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionListener;
-import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
+import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.exceptions.TemplateProcessingException;
@@ -26,27 +26,26 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
 import java.util.Map;
 
 /**
- * An extension of the head processor that will add the Seo Meta Data to the head context.
- *
+ * An extension of the head processor that will add the Twitter Data to the head context.
+ * 
  * @author Jerry Ocanas (jocanas)
  */
-public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener  {
+public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener {
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
-		String seoMetaDataAttribute = element.getAttributeValue("seoMetaData");
-        SeoMetaDataImpl seoMetaData = null;
+        String twitterDataAttribute = element.getAttributeValue("twitterData");
+        TwitterDataImpl twitterData = null;
 
 		try {
-            if(seoMetaDataAttribute != null){
-                seoMetaData = (SeoMetaDataImpl) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
+            if(twitterDataAttribute != null){
+                twitterData = (TwitterDataImpl) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
             }
-
 		} catch (TemplateProcessingException e) {
 			// Do nothing.
 		}
 
-        ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("seoMetaData", seoMetaData);
+        ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("twitterData", twitterData);
 
     }
 
