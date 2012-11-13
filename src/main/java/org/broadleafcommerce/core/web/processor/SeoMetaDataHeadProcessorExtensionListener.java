@@ -16,8 +16,10 @@
 
 package org.broadleafcommerce.core.web.processor;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionListener;
-import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
+import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.exceptions.TemplateProcessingException;
@@ -31,19 +33,20 @@ import java.util.Map;
  * @author Jerry Ocanas (jocanas)
  */
 public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener  {
+    private static final Log LOG = LogFactory.getLog(SeoMetaDataHeadProcessorExtensionListener.class);
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
 		String seoMetaDataAttribute = element.getAttributeValue("seoMetaData");
-        SeoMetaDataImpl seoMetaData = null;
+        SeoMetaData seoMetaData = null;
 
 		try {
             if(seoMetaDataAttribute != null){
-                seoMetaData = (SeoMetaDataImpl) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
+                seoMetaData = (SeoMetaData) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
             }
 
 		} catch (TemplateProcessingException e) {
-			// Do nothing.
+            LOG.warn("Error processing expression", e);
 		}
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("seoMetaData", seoMetaData);

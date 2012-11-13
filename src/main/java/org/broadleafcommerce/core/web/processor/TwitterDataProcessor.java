@@ -16,7 +16,9 @@
 
 package org.broadleafcommerce.core.web.processor;
 
-import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.broadleafcommerce.seo.domain.catalog.TwitterData;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
@@ -31,11 +33,11 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
  * This processor is to be used within <head></head> context.
  *
  * <ul>
- * 	<li><b>twitterSite</b> - Optional, @username for the website used in the card footer..</li>
+ * 	<li><b>twitterSite</b> - Optional, @username for the website used in the card footer.</li>
  * 	<li><b>twitterCreator</b> - Optional, @username for the content creator / author.</li>
- * 	<li><b>twitterCard</b> - Optional, If no twitter:card value is set, we will default to a summary card.</li>
+ * 	<li><b>twitterCard</b> - Optional, If no twitter:card value is set, twitter will default to a summary card.</li>
  * 	<li><b>twitterUrl</b> - Canonical URL of the card content.</li>
- * 	<li><b>twitterTitle</b> - Title should be concise and will be truncated at 70 characters.</li>
+ * 	<li><b>twitterTitle</b> - Title should be concise and will be truncated at 70 characters by twitter.</li>
  * 	<li><b>twitterDescription</b> - A description that concisely summarizes the content of the page, as appropriate for presentation within a Tweet.</li>
  * 	<li><b>twitterImage</b> - Optional, URL to a unique image representing the content of the page.</li>
  * </ul>
@@ -44,6 +46,11 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
  */
 @Component("blTwitterDataProcessor")
 public class TwitterDataProcessor extends AbstractElementProcessor {
+    private static final Log LOG = LogFactory.getLog(TwitterDataProcessor.class);
+
+    private String defaultSite;
+    private String defaultCreator;
+    private String defaultImage;
 
     /**
      * Sets the name of this processor to be used in Thymeleaf template
@@ -71,7 +78,7 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
 
         try {
             if(twitterDataAttribute != null){
-                TwitterDataImpl twitterData = (TwitterDataImpl) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
+                TwitterData twitterData = (TwitterData) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
                 if (twitterData != null){
                     twitterCard = twitterData.getTwitterCard();
                     twitterUrl = twitterData.getTwitterUrl();
@@ -83,7 +90,18 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
                 }
             }
         } catch (TemplateProcessingException e) {
-            // Do nothing.
+            LOG.warn("Error processing expression", e);
+        }
+
+        //Use default information if none was provided
+        if(twitterCreator == null){
+            twitterCreator = defaultCreator;
+        }
+        if(twitterSite == null){
+            twitterSite = defaultSite;
+        }
+        if(twitterImage == null){
+            twitterImage =defaultImage;
         }
 
         // Replace the <blc:twittercard> node with <meta> tags; include only if not null
@@ -110,6 +128,30 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
         }
         element.getParent().removeChild(element);
         return ProcessorResult.OK;
+    }
+
+    public String getDefaultSite() {
+        return defaultSite;
+    }
+
+    public void setDefaultSite(String defaultSite) {
+        this.defaultSite = defaultSite;
+    }
+
+    public String getDefaultCreator() {
+        return defaultCreator;
+    }
+
+    public void setDefaultCreator(String defaultCreator) {
+        this.defaultCreator = defaultCreator;
+    }
+
+    public String getDefaultImage() {
+        return defaultImage;
+    }
+
+    public void setDefaultImage(String defaultImage) {
+        this.defaultImage = defaultImage;
     }
 
     protected Element createMetaTagElement(String name, String content){

@@ -16,7 +16,9 @@
 
 package org.broadleafcommerce.core.web.processor;
 
-import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
@@ -40,6 +42,7 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
  */
 @Component("blSeoMetaDataProcessor")
 public class SeoMetaDataProcessor extends AbstractElementProcessor {
+    private static final Log LOG = LogFactory.getLog(SeoMetaDataProcessor.class);
 
     /**
      * Sets the name of this processor to be used in Thymeleaf template
@@ -63,7 +66,7 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
 
         try {
             if(seoMetaDataAttribute != null){
-                SeoMetaDataImpl seoMetaData = (SeoMetaDataImpl) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
+                SeoMetaData seoMetaData = (SeoMetaData) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
                 if(seoMetaData != null){
                     metaDescription = seoMetaData.getMetaDescription();
                     metaKeywords = seoMetaData.getMetaKeywords();
@@ -71,7 +74,7 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
                 }
             }
         } catch (TemplateProcessingException e) {
-            // Do nothing.
+            LOG.warn("Error processing expression", e);
         }
 
         // Replace the <blc:seometadata> node with <meta> tags; include only if not null

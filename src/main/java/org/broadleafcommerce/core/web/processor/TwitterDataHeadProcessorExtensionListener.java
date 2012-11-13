@@ -16,8 +16,10 @@
 
 package org.broadleafcommerce.core.web.processor;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionListener;
-import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
+import org.broadleafcommerce.seo.domain.catalog.TwitterData;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.exceptions.TemplateProcessingException;
@@ -31,18 +33,19 @@ import java.util.Map;
  * @author Jerry Ocanas (jocanas)
  */
 public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener {
+    private static final Log LOG = LogFactory.getLog(TwitterDataHeadProcessorExtensionListener.class);
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
         String twitterDataAttribute = element.getAttributeValue("twitterData");
-        TwitterDataImpl twitterData = null;
+        TwitterData twitterData = null;
 
 		try {
             if(twitterDataAttribute != null){
-                twitterData = (TwitterDataImpl) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
+                twitterData = (TwitterData) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
             }
 		} catch (TemplateProcessingException e) {
-			// Do nothing.
+            LOG.warn("Error processing expression", e);
 		}
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("twitterData", twitterData);
