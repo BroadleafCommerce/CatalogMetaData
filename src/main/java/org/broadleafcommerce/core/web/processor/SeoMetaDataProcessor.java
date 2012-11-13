@@ -74,7 +74,7 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
                 }
             }
         } catch (TemplateProcessingException e) {
-            LOG.warn("Error processing expression", e);
+            LOG.error("Error processing expression", e);
         }
 
         // Replace the <blc:seometadata> node with <meta> tags; include only if not null

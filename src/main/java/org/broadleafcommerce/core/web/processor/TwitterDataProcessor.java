@@ -90,7 +90,7 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
                 }
             }
         } catch (TemplateProcessingException e) {
-            LOG.warn("Error processing expression", e);
+            LOG.error("Error processing expression", e);
         }
 
         //Use default information if none was provided
