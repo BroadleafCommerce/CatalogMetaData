@@ -20,6 +20,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionListener;
 import org.broadleafcommerce.seo.domain.catalog.TwitterData;
+import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.exceptions.TemplateProcessingException;
@@ -37,15 +38,26 @@ public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorE
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
-        String twitterDataAttribute = element.getAttributeValue("twitterData");
+        String dataObject = element.getAttributeValue("seoData");
         TwitterData twitterData = null;
 
 		try {
-            if(twitterDataAttribute != null){
-                twitterData = (TwitterData) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
+            if(dataObject != null){
+                Object rawDataObject = StandardExpressionProcessor.processExpression(arguments, dataObject);
+                if(rawDataObject instanceof TwitterData){
+                    TwitterData twitterDataObject = (TwitterData) rawDataObject;
+                    twitterData = new TwitterDataImpl();
+                    twitterData.setTwitterCard(twitterDataObject.getTwitterCard());
+                    twitterData.setTwitterCreator(twitterDataObject.getTwitterCreator());
+                    twitterData.setTwitterDescription(twitterDataObject.getTwitterDescription());
+                    twitterData.setTwitterImage(twitterDataObject.getTwitterImage());
+                    twitterData.setTwitterSite(twitterDataObject.getTwitterSite());
+                    twitterData.setTwitterTitle(twitterDataObject.getTwitterTitle());
+                    twitterData.setTwitterUrl(twitterDataObject.getTwitterUrl());
+                }
             }
 		} catch (TemplateProcessingException e) {
-            LOG.warn("Error processing expression", e);
+            LOG.error("Error processing expression", e);
 		}
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("twitterData", twitterData);

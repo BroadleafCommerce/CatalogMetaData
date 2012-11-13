@@ -20,6 +20,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionListener;
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
+import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.exceptions.TemplateProcessingException;
@@ -37,16 +38,23 @@ public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorE
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
-		String seoMetaDataAttribute = element.getAttributeValue("seoMetaData");
+        String dataObject = element.getAttributeValue("seoData");
         SeoMetaData seoMetaData = null;
 
-		try {
-            if(seoMetaDataAttribute != null){
-                seoMetaData = (SeoMetaData) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
+        try {
+            if(dataObject != null){
+                Object rawDataObject = StandardExpressionProcessor.processExpression(arguments, dataObject);
+                if(rawDataObject instanceof SeoMetaData){
+                    SeoMetaData seoDataObject = (SeoMetaData) rawDataObject;
+                    seoMetaData = new SeoMetaDataImpl();
+                    seoMetaData.setMetaDescription(seoDataObject.getMetaDescription());
+                    seoMetaData.setMetaKeywords(seoDataObject.getMetaKeywords());
+                    seoMetaData.setMetaRobot(seoDataObject.getMetaRobot());
+                }
             }
 
 		} catch (TemplateProcessingException e) {
-            LOG.warn("Error processing expression", e);
+            LOG.error("Error processing expression", e);
 		}
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("seoMetaData", seoMetaData);
