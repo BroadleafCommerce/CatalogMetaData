@@ -17,10 +17,12 @@
 package org.broadleafcommerce.seo.domain.catalog;
 
 import org.broadleafcommerce.common.presentation.AdminPresentation;
+import org.hibernate.annotations.Type;
 
 import javax.annotation.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Lob;
 
 /**
  * @author Jerry Ocanas (jocanas)
@@ -30,10 +32,14 @@ public class SeoMetaDataImpl implements SeoMetaData {
 
     private static final long serialVersionUID = 1L;
 
+    @Lob
+    @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "META_DESCRIPTION")
     @AdminPresentation(friendlyName = "Seo_Meta_Description", order=11, group = "Seo_Group",groupOrder=2)
     protected String metaDescription;
 
+    @Lob
+    @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "META_KEYWORDS")
     @AdminPresentation(friendlyName = "Seo_Meta_Keywords", order=12, group = "Seo_Group",groupOrder=2)
     protected String metaKeywords;
