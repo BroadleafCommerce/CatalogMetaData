@@ -16,12 +16,14 @@
 
 package org.broadleafcommerce.seo.domain.catalog;
 
+import java.io.Serializable;
+
 import javax.annotation.Nullable;
 
 /**
  * @author Jerry Ocanas (jocanas)
  */
-public interface TwitterData {
+public interface TwitterData extends Serializable {
 
     /**
      * Gets the twitter:site content.
