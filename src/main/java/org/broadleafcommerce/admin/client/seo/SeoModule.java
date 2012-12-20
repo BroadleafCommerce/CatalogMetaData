@@ -16,9 +16,11 @@
 
 package org.broadleafcommerce.admin.client.seo;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.i18n.client.ConstantsWithLookup;
 import org.broadleafcommerce.openadmin.client.AbstractModule;
+import org.broadleafcommerce.openadmin.client.BLCMain;
+import org.broadleafcommerce.openadmin.client.i18nConstants;
+
+import com.google.gwt.core.client.GWT;
 
 /**
  * @author Jerry Ocanas (jocanas)
@@ -26,6 +28,6 @@ import org.broadleafcommerce.openadmin.client.AbstractModule;
 public class SeoModule extends AbstractModule {
 
     public void onModuleLoad() {
-        addConstants(GWT.<ConstantsWithLookup>create(SeoMessages.class));
+        BLCMain.getMessageManager().addConstants(GWT.<i18nConstants> create(SeoMessages.class));
     }
 }
