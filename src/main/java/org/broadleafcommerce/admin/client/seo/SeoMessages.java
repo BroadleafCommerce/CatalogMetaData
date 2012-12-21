@@ -16,14 +16,17 @@
 
 package org.broadleafcommerce.admin.client.seo;
 
-import com.google.gwt.i18n.client.ConstantsWithLookup;
+import org.broadleafcommerce.openadmin.client.i18nConstants;
+
 import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
+import com.google.gwt.i18n.client.LocalizableResource.Generate;
 
 /**
  * @author Jerry Ocanas (jocanas)
  */
+@Generate(format = "com.google.gwt.i18n.rebind.format.PropertiesFormat")
 @DefaultLocale("en_US")
-public interface SeoMessages extends ConstantsWithLookup {
+public interface SeoMessages extends i18nConstants {
 
     public String Seo_Meta_Description();
     public String Seo_Meta_Keywords();
