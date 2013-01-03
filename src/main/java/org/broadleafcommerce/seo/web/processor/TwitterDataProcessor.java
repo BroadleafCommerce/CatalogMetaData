@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.broadleafcommerce.core.web.processor;
+package org.broadleafcommerce.seo.web.processor;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

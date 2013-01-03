@@ -18,13 +18,9 @@ package org.broadleafcommerce.seo.admin.client;
 
 import org.broadleafcommerce.openadmin.client.i18nConstants;
 
-import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
-import com.google.gwt.i18n.client.LocalizableResource.Generate;
-
 /**
  * @author Jerry Ocanas (jocanas)
  */
-
 public interface SeoMessages extends i18nConstants {
-
+    
 }

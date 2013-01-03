@@ -16,6 +16,7 @@
 
 package org.broadleafcommerce.core.catalog.domain;
 
+
 import junit.framework.TestCase;
 
 /**

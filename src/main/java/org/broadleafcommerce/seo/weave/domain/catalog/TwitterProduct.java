@@ -1,12 +1,7 @@
-package org.broadleafcommerce.core.catalog.domain;
+package org.broadleafcommerce.seo.weave.domain.catalog;
 
-import org.broadleafcommerce.core.catalog.domain.Product;
-import org.broadleafcommerce.core.catalog.domain.ProductImpl;
-import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
-import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
 import org.broadleafcommerce.seo.domain.catalog.TwitterData;
 import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
-import org.hibernate.annotations.Entity;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embedded;
@@ -14,131 +9,104 @@ import javax.persistence.Embedded;
 /**
  * @author Jerry Ocanas (jocanas)
  */
-@Entity
-public class MyProductImpl extends ProductImpl implements Product, SeoMetaData, TwitterData {
+public class TwitterProduct implements TwitterData {
 
     @Embedded
-    protected SeoMetaData embeddableSeoMetaData = new SeoMetaDataImpl();
-
-    @Embedded
-    protected TwitterData embeddableTwitterData = new TwitterDataImpl();
-
-    @Override
-    @Nullable
-    public String getMetaDescription() {
-        return embeddableSeoMetaData.getMetaDescription();
-    }
-
-    @Override
-    public void setMetaDescription(@Nullable String metaDescription) {
-        embeddableSeoMetaData.setMetaDescription(metaDescription);
-    }
-
-    @Override
-    @Nullable
-    public String getMetaKeywords() {
-        return embeddableSeoMetaData.getMetaKeywords();
-    }
-
-    @Override
-    public void setMetaKeywords(@Nullable String metaKeywords) {
-        embeddableSeoMetaData.setMetaKeywords(metaKeywords);
-    }
-
-    @Override
-    @Nullable
-    public String getMetaRobot() {
-        return embeddableSeoMetaData.getMetaRobot();
-    }
-
-    @Override
-    public void setMetaRobot(@Nullable String metaRobot) {
-        embeddableSeoMetaData.setMetaRobot(metaRobot);
-    }
-
-    @Override
-    @Nullable
-    public String getTitleFragment() {
-        return embeddableSeoMetaData.getTitleFragment();
-    }
-
-    @Override
-    public void setTitleFragment(@Nullable String titleFragment) {
-        embeddableSeoMetaData.setTitleFragment(titleFragment);
-    }
+    protected TwitterData embeddableTwitterData;
 
     @Override
     public String getTwitterSite() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterSite();
     }
 
     @Override
     public void setTwitterSite(@Nullable String twitterSite) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterSite(twitterSite);
     }
 
     @Override
     public String getTwitterCreator() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterCreator();
     }
 
     @Override
     public void setTwitterCreator(@Nullable String twitterCreator) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterCreator(twitterCreator);
     }
 
     @Override
     @Nullable
     public String getTwitterCard() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterCard();
     }
 
     @Override
     public void setTwitterCard(@Nullable String twitterCard) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterCard(twitterCard);
     }
 
     @Override
     @Nullable
     public String getTwitterUrl() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterUrl();
     }
 
     @Override
     public void setTwitterUrl(@Nullable String twitterUrl) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterUrl(twitterUrl);
     }
 
     @Override
     @Nullable
     public String getTwitterTitle() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterTitle();
     }
 
     @Override
     public void setTwitterTitle(@Nullable String twitterTitle) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterTitle(twitterTitle);
     }
 
     @Override
     @Nullable
     public String getTwitterDescription() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterDescription();
     }
 
     @Override
     public void setTwitterDescription(@Nullable String twitterDescription) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterDescription(twitterDescription);
     }
 
     @Override
     @Nullable
     public String getTwitterImage() {
+        setTwitterProductInitialValues();
         return embeddableTwitterData.getTwitterImage();
     }
 
     @Override
     public void setTwitterImage(@Nullable String twitterImage) {
+        setTwitterProductInitialValues();
         embeddableTwitterData.setTwitterImage(twitterImage);
     }
+    
+    protected void setTwitterProductInitialValues() {
+        if (embeddableTwitterData == null) {
+            embeddableTwitterData = new TwitterDataImpl();
+        }
+    }
+
 }

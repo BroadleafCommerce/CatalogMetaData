@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.broadleafcommerce.core.web.processor;
+package org.broadleafcommerce.seo.web.processor;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionListener;
-import org.broadleafcommerce.seo.domain.catalog.TwitterData;
-import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;
+import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
+import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.exceptions.TemplateProcessingException;
@@ -29,38 +29,35 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
 import java.util.Map;
 
 /**
- * An extension of the head processor that will add the Twitter Data to the head context.
- * 
+ * An extension of the head processor that will add the Seo Meta Data to the head context.
+ *
  * @author Jerry Ocanas (jocanas)
  */
-public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener {
-    private static final Log LOG = LogFactory.getLog(TwitterDataHeadProcessorExtensionListener.class);
+public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener  {
+    private static final Log LOG = LogFactory.getLog(SeoMetaDataHeadProcessorExtensionListener.class);
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
         String dataObject = element.getAttributeValue("seoData");
-        TwitterData twitterData = null;
+        SeoMetaData seoMetaData = null;
 
-		try {
+        try {
             if(dataObject != null){
                 Object rawDataObject = StandardExpressionProcessor.processExpression(arguments, dataObject);
-                if(rawDataObject instanceof TwitterData){
-                    TwitterData twitterDataObject = (TwitterData) rawDataObject;
-                    twitterData = new TwitterDataImpl();
-                    twitterData.setTwitterCard(twitterDataObject.getTwitterCard());
-                    twitterData.setTwitterCreator(twitterDataObject.getTwitterCreator());
-                    twitterData.setTwitterDescription(twitterDataObject.getTwitterDescription());
-                    twitterData.setTwitterImage(twitterDataObject.getTwitterImage());
-                    twitterData.setTwitterSite(twitterDataObject.getTwitterSite());
-                    twitterData.setTwitterTitle(twitterDataObject.getTwitterTitle());
-                    twitterData.setTwitterUrl(twitterDataObject.getTwitterUrl());
+                if(rawDataObject instanceof SeoMetaData){
+                    SeoMetaData seoDataObject = (SeoMetaData) rawDataObject;
+                    seoMetaData = new SeoMetaDataImpl();
+                    seoMetaData.setMetaDescription(seoDataObject.getMetaDescription());
+                    seoMetaData.setMetaKeywords(seoDataObject.getMetaKeywords());
+                    seoMetaData.setMetaRobot(seoDataObject.getMetaRobot());
                 }
             }
+
 		} catch (TemplateProcessingException e) {
             LOG.error("Error processing expression", e);
 		}
 
-        ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("twitterData", twitterData);
+        ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("seoMetaData", seoMetaData);
 
     }
 

@@ -22,7 +22,7 @@ import org.thymeleaf.processor.IProcessor;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SEODialect extends AbstractDialect {
+public class SeoDialect extends AbstractDialect {
 	
 	private Set<IProcessor> processors = new HashSet<IProcessor>();
 

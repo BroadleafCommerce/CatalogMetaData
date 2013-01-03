@@ -1,5 +1,7 @@
 package org.broadleafcommerce.core.catalog.domain;
 
+import org.broadleafcommerce.core.catalog.domain.Category;
+import org.broadleafcommerce.core.catalog.domain.CategoryImpl;
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
 import org.broadleafcommerce.seo.domain.catalog.TwitterData;

@@ -6,20 +6,60 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
-           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <context:component-scan base-package="org.broadleafcommerce.core.web.processor"/>
-
+    <context:component-scan base-package="org.broadleafcommerce.seo.web.processor"/>
+    
+    <bean id="blSeoClassTransformer" class="org.broadleafcommerce.common.extensibility.jpa.copy.DirectCopyClassTransformer">
+        <property name="xformTemplates">
+            <map>
+                <entry>
+                    <key><value>org.broadleafcommerce.core.catalog.domain.ProductImpl</value></key>
+                    <value>org.broadleafcommerce.seo.weave.domain.catalog.SeoProduct</value>
+                </entry>
+                <entry>
+                    <key><value>org.broadleafcommerce.core.catalog.domain.CategoryImpl</value></key>
+                    <value>org.broadleafcommerce.seo.weave.domain.catalog.SeoCategory</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="blTwitterClassTransformer" class="org.broadleafcommerce.common.extensibility.jpa.copy.DirectCopyClassTransformer">
+        <property name="xformTemplates">
+            <map>
+                <entry>
+                    <key><value>org.broadleafcommerce.core.catalog.domain.ProductImpl</value></key>
+                    <value>org.broadleafcommerce.seo.weave.domain.catalog.TwitterProduct</value>
+                </entry>
+                <entry>
+                    <key><value>org.broadleafcommerce.core.catalog.domain.CategoryImpl</value></key>
+                    <value>org.broadleafcommerce.seo.weave.domain.catalog.TwitterCategory</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="blMergedClassTransformers" class="org.springframework.beans.factory.config.ListFactoryBean">
+        <property name="sourceList">
+            <list>
+                <ref bean="blSeoClassTransformer" />
+                <ref bean="blTwitterClassTransformer" />
+            </list>
+        </property>
+    </bean>
+    
     <bean id="blHeadProcessorExtensionManager" class="org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionManager">
         <property name="listeners">
                <list>
-                   <bean class="org.broadleafcommerce.core.web.processor.SeoMetaDataHeadProcessorExtensionListener" />
-                   <bean class="org.broadleafcommerce.core.web.processor.TwitterDataHeadProcessorExtensionListener" />
+                   <bean class="org.broadleafcommerce.seo.web.processor.SeoMetaDataHeadProcessorExtensionListener" />
+                   <bean class="org.broadleafcommerce.seo.web.processor.TwitterDataHeadProcessorExtensionListener" />
                </list>
         </property>
     </bean>
 
-    <bean id="seoDialect" class="org.broadleafcommerce.core.web.dialect.SEODialect">
+    <bean id="seoDialect" class="org.broadleafcommerce.core.web.dialect.SeoDialect">
         <property name="processors">
             <set>
                 <ref bean="blImageProcessor" />
@@ -38,5 +78,3 @@
     </bean>
 
 </beans>
-
-
