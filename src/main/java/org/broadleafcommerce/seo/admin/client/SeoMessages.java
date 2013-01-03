@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.broadleafcommerce.admin.client.seo;
+package org.broadleafcommerce.seo.admin.client;
 
 import org.broadleafcommerce.openadmin.client.i18nConstants;
 
@@ -24,22 +24,7 @@ import com.google.gwt.i18n.client.LocalizableResource.Generate;
 /**
  * @author Jerry Ocanas (jocanas)
  */
-@Generate(format = "com.google.gwt.i18n.rebind.format.PropertiesFormat")
-@DefaultLocale("en_US")
+
 public interface SeoMessages extends i18nConstants {
 
-    public String Seo_Meta_Description();
-    public String Seo_Meta_Keywords();
-    public String Seo_Meta_Robot();
-    public String Seo_Title_Fragment();
-
-    public String Seo_Group_Twitter();
-
-    public String TwitterDataImpl_TwitterSite();
-    public String TwitterDataImpl_TwitterCreator();
-    public String TwitterDataImpl_TwitterCard();
-    public String TwitterDataImpl_TwitterUrl();
-    public String TwitterDataImpl_TwitterTitle();
-    public String TwitterDataImpl_TwitterDescription();
-    public String TwitterDataImpl_TwitterImage();
 }

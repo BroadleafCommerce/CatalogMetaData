@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.broadleafcommerce.admin.client.seo;
+package org.broadleafcommerce.seo.admin.client;
 
 import org.broadleafcommerce.openadmin.client.AbstractModule;
 import org.broadleafcommerce.openadmin.client.BLCMain;
