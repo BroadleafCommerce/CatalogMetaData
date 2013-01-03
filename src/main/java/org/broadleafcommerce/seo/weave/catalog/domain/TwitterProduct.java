@@ -1,4 +1,4 @@
-package org.broadleafcommerce.seo.weave.domain.catalog;
+package org.broadleafcommerce.seo.weave.catalog.domain;
 
 import org.broadleafcommerce.seo.domain.catalog.TwitterData;
 import org.broadleafcommerce.seo.domain.catalog.TwitterDataImpl;

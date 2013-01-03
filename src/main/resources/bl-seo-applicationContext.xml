@@ -16,11 +16,11 @@
             <map>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.ProductImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.domain.catalog.SeoProduct</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.SeoProduct</value>
                 </entry>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.CategoryImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.domain.catalog.SeoCategory</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.SeoCategory</value>
                 </entry>
             </map>
         </property>

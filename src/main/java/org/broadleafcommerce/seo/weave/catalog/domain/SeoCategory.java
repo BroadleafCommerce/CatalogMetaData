@@ -1,4 +1,4 @@
-package org.broadleafcommerce.seo.weave.domain.catalog;
+package org.broadleafcommerce.seo.weave.catalog.domain;
 
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
@@ -9,7 +9,7 @@ import javax.persistence.Embedded;
 /**
  * @author Jerry Ocanas (jocanas)
  */
-public class SeoProduct implements SeoMetaData {
+public class SeoCategory implements SeoMetaData {
 
     @Embedded
     protected SeoMetaDataImpl embeddableSeoMetaData;
@@ -17,56 +17,56 @@ public class SeoProduct implements SeoMetaData {
     @Override
     @Nullable
     public String getMetaDescription() {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         return embeddableSeoMetaData.getMetaDescription();
     }
 
     @Override
     public void setMetaDescription(@Nullable String metaDescription) {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         embeddableSeoMetaData.setMetaDescription(metaDescription);
     }
 
     @Override
     @Nullable
     public String getMetaKeywords() {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         return embeddableSeoMetaData.getMetaKeywords();
     }
 
     @Override
     public void setMetaKeywords(@Nullable String metaKeywords) {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         embeddableSeoMetaData.setMetaKeywords(metaKeywords);
     }
 
     @Override
     @Nullable
     public String getMetaRobot() {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         return embeddableSeoMetaData.getMetaRobot();
     }
 
     @Override
     public void setMetaRobot(@Nullable String metaRobot) {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         embeddableSeoMetaData.setMetaRobot(metaRobot);
     }
 
     @Override
     @Nullable
     public String getTitleFragment() {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         return embeddableSeoMetaData.getTitleFragment();
     }
 
     @Override
     public void setTitleFragment(@Nullable String titleFragment) {
-        setSeoProductInitialValues();
+        setSeoCategoryInitialValues();
         embeddableSeoMetaData.setTitleFragment(titleFragment);
     }
-    
-    protected void setSeoProductInitialValues() {
+
+    protected void setSeoCategoryInitialValues() {
         if (embeddableSeoMetaData == null) {
             embeddableSeoMetaData = new SeoMetaDataImpl();
         }
