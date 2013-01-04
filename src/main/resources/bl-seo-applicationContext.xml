@@ -11,7 +11,13 @@
 
     <context:component-scan base-package="org.broadleafcommerce.seo.web.processor"/>
     
+    <bean class="org.broadleafcommerce.common.logging.ModuleLifecycleLoggingBean">
+        <property name="moduleName" value="CatalogMetaData"/>
+        <property name="lifeCycleEvent" value="LOADING"/>
+    </bean>
+    
     <bean id="blSeoClassTransformer" class="org.broadleafcommerce.common.extensibility.jpa.copy.DirectCopyClassTransformer">
+        <constructor-arg name="moduleName" value="CatalogMetaData" />
         <property name="xformTemplates">
             <map>
                 <entry>
@@ -27,15 +33,16 @@
     </bean>
     
     <bean id="blTwitterClassTransformer" class="org.broadleafcommerce.common.extensibility.jpa.copy.DirectCopyClassTransformer">
+        <constructor-arg name="moduleName" value="CatalogMetaData" />
         <property name="xformTemplates">
             <map>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.ProductImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.domain.catalog.TwitterProduct</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.TwitterProduct</value>
                 </entry>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.CategoryImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.domain.catalog.TwitterCategory</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.TwitterCategory</value>
                 </entry>
             </map>
         </property>
