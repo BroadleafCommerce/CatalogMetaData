@@ -22,6 +22,11 @@ import org.thymeleaf.processor.IProcessor;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The dialect for SEO related processors
+ * 
+ * @author Andre Azzolini (apazzolini)
+ */
 public class SeoDialect extends AbstractDialect {
 	
 	private Set<IProcessor> processors = new HashSet<IProcessor>();

@@ -33,18 +33,19 @@ import java.util.Map;
  *
  * @author Jerry Ocanas (jocanas)
  */
-public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener  {
+public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorExtensionListener {
     private static final Log LOG = LogFactory.getLog(SeoMetaDataHeadProcessorExtensionListener.class);
 
+    @SuppressWarnings("unchecked")
     public void processAttributeValues(Arguments arguments, Element element) {
 
         String dataObject = element.getAttributeValue("seoData");
         SeoMetaData seoMetaData = null;
 
         try {
-            if(dataObject != null){
+            if (dataObject != null) {
                 Object rawDataObject = StandardExpressionProcessor.processExpression(arguments, dataObject);
-                if(rawDataObject instanceof SeoMetaData){
+                if (rawDataObject instanceof SeoMetaData) {
                     SeoMetaData seoDataObject = (SeoMetaData) rawDataObject;
                     seoMetaData = new SeoMetaDataImpl();
                     seoMetaData.setMetaDescription(seoDataObject.getMetaDescription());
@@ -53,9 +54,9 @@ public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorE
                 }
             }
 
-		} catch (TemplateProcessingException e) {
+        } catch (TemplateProcessingException e) {
             LOG.error("Error processing expression", e);
-		}
+        }
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("seoMetaData", seoMetaData);
 

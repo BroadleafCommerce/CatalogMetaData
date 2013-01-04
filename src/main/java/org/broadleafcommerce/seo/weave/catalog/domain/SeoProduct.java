@@ -7,7 +7,9 @@ import javax.annotation.Nullable;
 import javax.persistence.Embedded;
 
 /**
- * @author Jerry Ocanas (jocanas)
+ * The template class that will be weaved in via JPA class transformation at runtime.
+ * 
+ * @author Andre Azzolini (apazzolini)
  */
 public class SeoProduct implements SeoMetaData {
 

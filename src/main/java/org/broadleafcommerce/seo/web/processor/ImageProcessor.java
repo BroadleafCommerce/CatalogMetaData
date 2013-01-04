@@ -60,7 +60,7 @@ public class ImageProcessor extends AbstractElementProcessor {
         element.setAttribute("src", src);
         element.setAttribute("alt", alt);
 
-        // Replace the <blc:img> node to a normal <img> node
+        // Replace the <seo:img> node to a normal <img> node
         Element newElement = element.cloneElementNodeWithNewName(element.getParent(), "img", false);
         newElement.setRecomputeProcessorsImmediately(true);
         element.getParent().insertAfter(element, newElement);

@@ -77,9 +77,9 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
         String twitterCreator = null;
 
         try {
-            if(twitterDataAttribute != null){
+            if (twitterDataAttribute != null) {
                 TwitterData twitterData = (TwitterData) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
-                if (twitterData != null){
+                if (twitterData != null) {
                     twitterCard = twitterData.getTwitterCard();
                     twitterUrl = twitterData.getTwitterUrl();
                     twitterTitle = twitterData.getTwitterTitle();
@@ -94,36 +94,36 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
         }
 
         //Use default information if none was provided
-        if(twitterCreator == null){
+        if (twitterCreator == null) {
             twitterCreator = defaultCreator;
         }
-        if(twitterSite == null){
+        if (twitterSite == null) {
             twitterSite = defaultSite;
         }
-        if(twitterImage == null){
-            twitterImage =defaultImage;
+        if (twitterImage == null) {
+            twitterImage = defaultImage;
         }
 
         // Replace the <blc:twittercard> node with <meta> tags; include only if not null
-        if(twitterCreator != null){
+        if (twitterCreator != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:creator", twitterCreator));
         }
-        if(twitterSite != null){
+        if (twitterSite != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:site", twitterSite));
         }
-        if(twitterImage != null){
+        if (twitterImage != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:image", twitterImage));
         }
-        if(twitterDescription != null){
+        if (twitterDescription != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:description", twitterDescription));
         }
-        if(twitterTitle != null){
+        if (twitterTitle != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:title", twitterTitle));
         }
-        if(twitterUrl != null){
+        if (twitterUrl != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:url", twitterUrl));
         }
-        if(twitterCard != null){
+        if (twitterCard != null) {
             element.getParent().insertAfter(element, createMetaTagElement("twitter:card", twitterCard));
         }
         element.getParent().removeChild(element);
@@ -154,7 +154,7 @@ public class TwitterDataProcessor extends AbstractElementProcessor {
         this.defaultImage = defaultImage;
     }
 
-    protected Element createMetaTagElement(String name, String content){
+    protected Element createMetaTagElement(String name, String content) {
         Element element = new Element("meta");
         element.setAttribute("name", name);
         element.setAttribute("content", content);

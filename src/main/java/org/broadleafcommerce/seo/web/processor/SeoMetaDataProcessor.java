@@ -65,9 +65,9 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
         String metaRobot = null;
 
         try {
-            if(seoMetaDataAttribute != null){
+            if (seoMetaDataAttribute != null) {
                 SeoMetaData seoMetaData = (SeoMetaData) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
-                if(seoMetaData != null){
+                if (seoMetaData != null) {
                     metaDescription = seoMetaData.getMetaDescription();
                     metaKeywords = seoMetaData.getMetaKeywords();
                     metaRobot = seoMetaData.getMetaRobot();
@@ -78,20 +78,20 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
         }
 
         // Replace the <blc:seometadata> node with <meta> tags; include only if not null
-        if(metaRobot != null){
+        if (metaRobot != null) {
             element.getParent().insertAfter(element, createMetaTagElement("robot", metaRobot));
         }
-        if(metaKeywords != null){
+        if (metaKeywords != null) {
             element.getParent().insertAfter(element, createMetaTagElement("keywords", metaKeywords));
         }
-        if(metaDescription != null){
+        if (metaDescription != null) {
             element.getParent().insertAfter(element, createMetaTagElement("description", metaDescription));
         }
         element.getParent().removeChild(element);
         return ProcessorResult.OK;
     }
 
-    protected Element createMetaTagElement(String name, String content){
+    protected Element createMetaTagElement(String name, String content) {
         Element element = new Element("meta");
         element.setAttribute("name", name);
         element.setAttribute("content", content);

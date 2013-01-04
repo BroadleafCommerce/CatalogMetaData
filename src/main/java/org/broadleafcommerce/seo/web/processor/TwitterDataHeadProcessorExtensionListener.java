@@ -41,10 +41,10 @@ public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorE
         String dataObject = element.getAttributeValue("seoData");
         TwitterData twitterData = null;
 
-		try {
-            if(dataObject != null){
+        try {
+            if (dataObject != null) {
                 Object rawDataObject = StandardExpressionProcessor.processExpression(arguments, dataObject);
-                if(rawDataObject instanceof TwitterData){
+                if (rawDataObject instanceof TwitterData) {
                     TwitterData twitterDataObject = (TwitterData) rawDataObject;
                     twitterData = new TwitterDataImpl();
                     twitterData.setTwitterCard(twitterDataObject.getTwitterCard());
@@ -56,9 +56,9 @@ public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorE
                     twitterData.setTwitterUrl(twitterDataObject.getTwitterUrl());
                 }
             }
-		} catch (TemplateProcessingException e) {
+        } catch (TemplateProcessingException e) {
             LOG.error("Error processing expression", e);
-		}
+        }
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("twitterData", twitterData);
 
