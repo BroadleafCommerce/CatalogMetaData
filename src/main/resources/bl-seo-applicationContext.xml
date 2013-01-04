@@ -8,14 +8,11 @@
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+           
+    <import resource="classpath:/bl-seo-base-applicationContext.xml"/>
+    
+    <context:load-time-weaver />
 
-    <context:component-scan base-package="org.broadleafcommerce.seo.web.processor"/>
-    
-    <bean class="org.broadleafcommerce.common.logging.ModuleLifecycleLoggingBean">
-        <property name="moduleName" value="CatalogMetaData"/>
-        <property name="lifeCycleEvent" value="LOADING"/>
-    </bean>
-    
     <bean id="blSeoClassTransformer" class="org.broadleafcommerce.common.extensibility.jpa.copy.DirectCopyClassTransformer">
         <constructor-arg name="moduleName" value="CatalogMetaData" />
         <property name="xformTemplates">
@@ -54,33 +51,6 @@
                 <ref bean="blSeoClassTransformer" />
                 <ref bean="blTwitterClassTransformer" />
             </list>
-        </property>
-    </bean>
-    
-    <bean id="blHeadProcessorExtensionManager" class="org.broadleafcommerce.core.web.processor.extension.HeadProcessorExtensionManager">
-        <property name="listeners">
-               <list>
-                   <bean class="org.broadleafcommerce.seo.web.processor.SeoMetaDataHeadProcessorExtensionListener" />
-                   <bean class="org.broadleafcommerce.seo.web.processor.TwitterDataHeadProcessorExtensionListener" />
-               </list>
-        </property>
-    </bean>
-
-    <bean id="seoDialect" class="org.broadleafcommerce.core.web.dialect.SeoDialect">
-        <property name="processors">
-            <set>
-                <ref bean="blImageProcessor" />
-                <ref bean="blSeoMetaDataProcessor" />
-                <ref bean="blTwitterDataProcessor" />
-            </set>
-        </property>
-    </bean>
-
-    <bean id="blWebTemplateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
-        <property name="dialects">
-            <set>
-                <ref bean="seoDialect" />
-            </set>
         </property>
     </bean>
 
