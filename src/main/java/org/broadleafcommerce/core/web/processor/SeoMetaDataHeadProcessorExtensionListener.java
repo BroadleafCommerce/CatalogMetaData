@@ -34,17 +34,17 @@ public class SeoMetaDataHeadProcessorExtensionListener implements HeadProcessorE
 
     public void processAttributeValues(Arguments arguments, Element element) {
 
-		String seoMetaDataAttribute = element.getAttributeValue("seoMetaData");
+        String seoMetaDataAttribute = element.getAttributeValue("seoMetaData");
         SeoMetaDataImpl seoMetaData = null;
 
-		try {
+        try {
             if(seoMetaDataAttribute != null){
                 seoMetaData = (SeoMetaDataImpl) StandardExpressionProcessor.processExpression(arguments, seoMetaDataAttribute);
             }
 
-		} catch (TemplateProcessingException e) {
-			// Do nothing.
-		}
+        } catch (TemplateProcessingException e) {
+            // Do nothing.
+        }
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("seoMetaData", seoMetaData);
 

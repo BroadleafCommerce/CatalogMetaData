@@ -31,13 +31,13 @@ import org.thymeleaf.standard.expression.StandardExpressionProcessor;
  * This processor is to be used within <head></head> context.
  *
  * <ul>
- * 	<li><b>twitterSite</b> - Optional, @username for the website used in the card footer..</li>
- * 	<li><b>twitterCreator</b> - Optional, @username for the content creator / author.</li>
- * 	<li><b>twitterCard</b> - Optional, If no twitter:card value is set, we will default to a summary card.</li>
- * 	<li><b>twitterUrl</b> - Canonical URL of the card content.</li>
- * 	<li><b>twitterTitle</b> - Title should be concise and will be truncated at 70 characters.</li>
- * 	<li><b>twitterDescription</b> - A description that concisely summarizes the content of the page, as appropriate for presentation within a Tweet.</li>
- * 	<li><b>twitterImage</b> - Optional, URL to a unique image representing the content of the page.</li>
+ *  <li><b>twitterSite</b> - Optional, @username for the website used in the card footer..</li>
+ *  <li><b>twitterCreator</b> - Optional, @username for the content creator / author.</li>
+ *  <li><b>twitterCard</b> - Optional, If no twitter:card value is set, we will default to a summary card.</li>
+ *  <li><b>twitterUrl</b> - Canonical URL of the card content.</li>
+ *  <li><b>twitterTitle</b> - Title should be concise and will be truncated at 70 characters.</li>
+ *  <li><b>twitterDescription</b> - A description that concisely summarizes the content of the page, as appropriate for presentation within a Tweet.</li>
+ *  <li><b>twitterImage</b> - Optional, URL to a unique image representing the content of the page.</li>
  * </ul>
  *
  * @author Jerry Ocanas (jocanas)

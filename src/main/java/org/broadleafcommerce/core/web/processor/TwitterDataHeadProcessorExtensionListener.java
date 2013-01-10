@@ -37,13 +37,13 @@ public class TwitterDataHeadProcessorExtensionListener implements HeadProcessorE
         String twitterDataAttribute = element.getAttributeValue("twitterData");
         TwitterDataImpl twitterData = null;
 
-		try {
+        try {
             if(twitterDataAttribute != null){
                 twitterData = (TwitterDataImpl) StandardExpressionProcessor.processExpression(arguments, twitterDataAttribute);
             }
-		} catch (TemplateProcessingException e) {
-			// Do nothing.
-		}
+        } catch (TemplateProcessingException e) {
+            // Do nothing.
+        }
 
         ((Map<String, Object>) arguments.getExpressionEvaluationRoot()).put("twitterData", twitterData);
 
