@@ -16,9 +16,9 @@
 
 package org.broadleafcommerce.seo.domain.catalog;
 
-import java.io.Serializable;
-
 import javax.annotation.Nullable;
+
+import java.io.Serializable;
 
 /**
  * @author Jerry Ocanas (jocanas)
@@ -84,4 +84,5 @@ public interface SeoMetaData extends Serializable {
      * @param titleFragment
      */
     public void setTitleFragment(@Nullable String titleFragment);
+
 }

@@ -19,11 +19,11 @@
             <map>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.ProductImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.catalog.domain.SeoProduct</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.SeoCatalog</value>
                 </entry>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.CategoryImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.catalog.domain.SeoCategory</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.SeoCatalog</value>
                 </entry>
             </map>
         </property>
@@ -35,11 +35,11 @@
             <map>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.ProductImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.catalog.domain.TwitterProduct</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.TwitterCatalog</value>
                 </entry>
                 <entry>
                     <key><value>org.broadleafcommerce.core.catalog.domain.CategoryImpl</value></key>
-                    <value>org.broadleafcommerce.seo.weave.catalog.domain.TwitterCategory</value>
+                    <value>org.broadleafcommerce.seo.weave.catalog.domain.TwitterCatalog</value>
                 </entry>
             </map>
         </property>
