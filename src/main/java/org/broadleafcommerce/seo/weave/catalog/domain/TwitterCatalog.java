@@ -1,3 +1,4 @@
+
 package org.broadleafcommerce.seo.weave.catalog.domain;
 
 import org.broadleafcommerce.seo.domain.catalog.TwitterData;
@@ -16,79 +17,86 @@ public class TwitterCatalog implements TwitterData {
     @Embedded
     protected TwitterDataImpl embeddableTwitterData = new TwitterDataImpl();
 
+    protected TwitterData getEmbeddableTwitterData() {
+        if (embeddableTwitterData == null) {
+            embeddableTwitterData = new TwitterDataImpl();
+        }
+        return embeddableTwitterData;
+    }
+
     @Override
     public String getTwitterSite() {
-        return embeddableTwitterData.getTwitterSite();
+        return getEmbeddableTwitterData().getTwitterSite();
     }
 
     @Override
     public void setTwitterSite(@Nullable String twitterSite) {
-        embeddableTwitterData.setTwitterSite(twitterSite);
+        getEmbeddableTwitterData().setTwitterSite(twitterSite);
     }
 
     @Override
     public String getTwitterCreator() {
-        return embeddableTwitterData.getTwitterCreator();
+        return getEmbeddableTwitterData().getTwitterCreator();
     }
 
     @Override
     public void setTwitterCreator(@Nullable String twitterCreator) {
-        embeddableTwitterData.setTwitterCreator(twitterCreator);
+        getEmbeddableTwitterData().setTwitterCreator(twitterCreator);
     }
 
     @Override
     @Nullable
     public String getTwitterCard() {
-        return embeddableTwitterData.getTwitterCard();
+        return getEmbeddableTwitterData().getTwitterCard();
     }
 
     @Override
     public void setTwitterCard(@Nullable String twitterCard) {
-        embeddableTwitterData.setTwitterCard(twitterCard);
+        getEmbeddableTwitterData().setTwitterCard(twitterCard);
     }
 
     @Override
     @Nullable
     public String getTwitterUrl() {
-        return embeddableTwitterData.getTwitterUrl();
+        return getEmbeddableTwitterData().getTwitterUrl();
     }
 
     @Override
     public void setTwitterUrl(@Nullable String twitterUrl) {
-        embeddableTwitterData.setTwitterUrl(twitterUrl);
+        getEmbeddableTwitterData().setTwitterUrl(twitterUrl);
     }
 
     @Override
     @Nullable
     public String getTwitterTitle() {
-        return embeddableTwitterData.getTwitterTitle();
+        return getEmbeddableTwitterData().getTwitterTitle();
     }
 
     @Override
     public void setTwitterTitle(@Nullable String twitterTitle) {
-        embeddableTwitterData.setTwitterTitle(twitterTitle);
+        getEmbeddableTwitterData().setTwitterTitle(twitterTitle);
     }
 
     @Override
     @Nullable
     public String getTwitterDescription() {
-        return embeddableTwitterData.getTwitterDescription();
+        return getEmbeddableTwitterData().getTwitterDescription();
     }
 
     @Override
     public void setTwitterDescription(@Nullable String twitterDescription) {
-        embeddableTwitterData.setTwitterDescription(twitterDescription);
+        getEmbeddableTwitterData().setTwitterDescription(twitterDescription);
     }
 
     @Override
     @Nullable
     public String getTwitterImage() {
-        return embeddableTwitterData.getTwitterImage();
+        return getEmbeddableTwitterData().getTwitterImage();
     }
 
     @Override
     public void setTwitterImage(@Nullable String twitterImage) {
-        embeddableTwitterData.setTwitterImage(twitterImage);
+        getEmbeddableTwitterData().setTwitterImage(twitterImage);
     }
-    
+
 }
