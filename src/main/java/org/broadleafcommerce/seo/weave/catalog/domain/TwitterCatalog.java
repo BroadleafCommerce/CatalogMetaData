@@ -1,3 +1,4 @@
+
 package org.broadleafcommerce.seo.weave.catalog.domain;
 
 import org.broadleafcommerce.seo.domain.catalog.TwitterData;
@@ -15,12 +16,12 @@ public class TwitterCatalog implements TwitterData {
 
     @Embedded
     protected TwitterDataImpl embeddableTwitterData = new TwitterDataImpl();
-    
+
     protected TwitterData getEmbeddableTwitterData() {
-    	if (embeddableTwitterData == null) {
-    		embeddableTwitterData = new TwitterDataImpl();
-    	}
-    	return embeddableTwitterData;
+        if (embeddableTwitterData == null) {
+            embeddableTwitterData = new TwitterDataImpl();
+        }
+        return embeddableTwitterData;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterSite(@Nullable String twitterSite) {
-    	getEmbeddableTwitterData().setTwitterSite(twitterSite);
+        getEmbeddableTwitterData().setTwitterSite(twitterSite);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterCreator(@Nullable String twitterCreator) {
-    	getEmbeddableTwitterData().setTwitterCreator(twitterCreator);
+        getEmbeddableTwitterData().setTwitterCreator(twitterCreator);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterCard(@Nullable String twitterCard) {
-    	getEmbeddableTwitterData().setTwitterCard(twitterCard);
+        getEmbeddableTwitterData().setTwitterCard(twitterCard);
     }
 
     @Override
@@ -62,7 +63,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterUrl(@Nullable String twitterUrl) {
-    	getEmbeddableTwitterData().setTwitterUrl(twitterUrl);
+        getEmbeddableTwitterData().setTwitterUrl(twitterUrl);
     }
 
     @Override
@@ -73,7 +74,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterTitle(@Nullable String twitterTitle) {
-    	getEmbeddableTwitterData().setTwitterTitle(twitterTitle);
+        getEmbeddableTwitterData().setTwitterTitle(twitterTitle);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterDescription(@Nullable String twitterDescription) {
-    	getEmbeddableTwitterData().setTwitterDescription(twitterDescription);
+        getEmbeddableTwitterData().setTwitterDescription(twitterDescription);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class TwitterCatalog implements TwitterData {
 
     @Override
     public void setTwitterImage(@Nullable String twitterImage) {
-    	getEmbeddableTwitterData().setTwitterImage(twitterImage);
+        getEmbeddableTwitterData().setTwitterImage(twitterImage);
     }
-    
+
 }

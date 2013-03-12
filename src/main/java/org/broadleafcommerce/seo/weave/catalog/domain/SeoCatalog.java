@@ -1,10 +1,11 @@
-package org.broadleafcommerce.seo.weave.catalog.domain;
 
-import javax.annotation.Nullable;
-import javax.persistence.Embedded;
+package org.broadleafcommerce.seo.weave.catalog.domain;
 
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaData;
 import org.broadleafcommerce.seo.domain.catalog.SeoMetaDataImpl;
+
+import javax.annotation.Nullable;
+import javax.persistence.Embedded;
 
 /**
  * The template class that will be weaved in via JPA class transformation at runtime.
@@ -15,12 +16,12 @@ public class SeoCatalog implements SeoMetaData {
 
     @Embedded
     protected SeoMetaDataImpl embeddableSeoMetaData = new SeoMetaDataImpl();
-    
+
     protected SeoMetaData getEmbeddableSeoMetaData() {
-    	if (embeddableSeoMetaData == null) {
-    		embeddableSeoMetaData = new SeoMetaDataImpl();
-    	}
-    	return embeddableSeoMetaData;
+        if (embeddableSeoMetaData == null) {
+            embeddableSeoMetaData = new SeoMetaDataImpl();
+        }
+        return embeddableSeoMetaData;
     }
 
     @Override
@@ -31,7 +32,7 @@ public class SeoCatalog implements SeoMetaData {
 
     @Override
     public void setMetaDescription(@Nullable String metaDescription) {
-    	getEmbeddableSeoMetaData().setMetaDescription(metaDescription);
+        getEmbeddableSeoMetaData().setMetaDescription(metaDescription);
     }
 
     @Override
@@ -42,7 +43,7 @@ public class SeoCatalog implements SeoMetaData {
 
     @Override
     public void setMetaKeywords(@Nullable String metaKeywords) {
-    	getEmbeddableSeoMetaData().setMetaKeywords(metaKeywords);
+        getEmbeddableSeoMetaData().setMetaKeywords(metaKeywords);
     }
 
     @Override
@@ -53,7 +54,7 @@ public class SeoCatalog implements SeoMetaData {
 
     @Override
     public void setMetaRobot(@Nullable String metaRobot) {
-    	getEmbeddableSeoMetaData().setMetaRobot(metaRobot);
+        getEmbeddableSeoMetaData().setMetaRobot(metaRobot);
     }
 
     @Override
@@ -64,7 +65,7 @@ public class SeoCatalog implements SeoMetaData {
 
     @Override
     public void setTitleFragment(@Nullable String titleFragment) {
-    	getEmbeddableSeoMetaData().setTitleFragment(titleFragment);
+        getEmbeddableSeoMetaData().setTitleFragment(titleFragment);
     }
 
 }
