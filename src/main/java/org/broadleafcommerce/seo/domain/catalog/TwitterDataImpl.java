@@ -31,31 +31,31 @@ public class TwitterDataImpl implements TwitterData {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "TWITTER_SITE")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterSite", order=21, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterSite", order = 21, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterSite;
 
     @Column(name = "TWITTER_CREATOR")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterCreator", order=22, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterCreator", order = 22, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterCreator;
 
     @Column(name = "TWITTER_CARD")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterCard", order=23, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterCard", order = 23, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterCard;
 
     @Column(name = "TWITTER_URL")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterUrl", order=24, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterUrl", order = 24, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterUrl;
 
     @Column(name = "TWITTER_TITLE")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterTitle", order=25, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterTitle", order = 25, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterTitle;
 
     @Column(name = "TWITTER_DESCRIPTION")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterDescription", order=26, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterDescription", order = 26, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterDescription;
 
     @Column(name = "TWITTER_IMAGE")
-    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterImage", order=27, group = "Seo_Group_Twitter")
+    @AdminPresentation(friendlyName = "TwitterDataImpl_TwitterImage", order = 27, group = "Seo_Group_Twitter", tab = "SEO_tab")
     protected String twitterImage;
 
     @Override

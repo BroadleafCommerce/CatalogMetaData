@@ -35,21 +35,21 @@ public class SeoMetaDataImpl implements SeoMetaData {
     @Lob
     @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "META_DESCRIPTION")
-    @AdminPresentation(friendlyName = "Seo_Meta_Description", order=11, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Meta_Description", order = 11, group = "Seo_Group", groupOrder = 2, tab = "SEO_tab")
     protected String metaDescription;
 
     @Lob
     @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "META_KEYWORDS")
-    @AdminPresentation(friendlyName = "Seo_Meta_Keywords", order=12, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Meta_Keywords", order = 12, group = "Seo_Group", groupOrder = 2, tab = "SEO_tab")
     protected String metaKeywords;
 
     @Column(name = "META_ROBOT")
-    @AdminPresentation(friendlyName = "Seo_Meta_Robot", order=13, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Meta_Robot", order = 13, group = "Seo_Group", groupOrder = 2, tab = "SEO_tab")
     protected String metaRobot;
 
     @Column(name = "TITLE_FRAGMENT")
-    @AdminPresentation(friendlyName = "Seo_Title_Fragment", order=14, group = "Seo_Group",groupOrder=2)
+    @AdminPresentation(friendlyName = "Seo_Title_Fragment", order = 14, group = "Seo_Group", groupOrder = 2, tab = "SEO_tab")
     protected String titleFragment;
 
     @Override
