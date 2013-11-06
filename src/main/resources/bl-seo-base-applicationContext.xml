@@ -42,8 +42,8 @@
             </set>
         </property>
     </bean>
-   <bean id="messageSource" class="org.broadleafcommerce.common.util.BroadleafMergeResourceBundleMessageSource">
-       
+
+    <bean id="messageSource" class="org.broadleafcommerce.common.util.BroadleafMergeResourceBundleMessageSource">
         <property name="useCodeAsDefaultMessage" value="true" />
         <property name="basenames">
             <list>
@@ -51,4 +51,5 @@
             </list>
         </property>
     </bean>
+
 </beans>

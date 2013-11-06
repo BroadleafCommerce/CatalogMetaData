@@ -49,7 +49,7 @@ public class SeoMetaDataImpl implements SeoMetaData {
     protected String metaRobot;
 
     @Column(name = "TITLE_FRAGMENT")
-    @AdminPresentation(friendlyName = "Seo_Title_Fragment", order = 14, group = "Seo_Group", groupOrder = 2, tab = "SEO_tab")
+    @AdminPresentation(friendlyName = "Seo_Title_Fragment", order = 10, group = "Seo_Group", groupOrder = 2, tab = "SEO_tab")
     protected String titleFragment;
 
     @Override
