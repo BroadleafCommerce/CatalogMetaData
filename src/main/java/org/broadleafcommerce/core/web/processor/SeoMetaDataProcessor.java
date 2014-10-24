@@ -74,7 +74,7 @@ public class SeoMetaDataProcessor extends AbstractElementProcessor {
 
         // Replace the <blc:seometadata> node with <meta> tags; include only if not null
         if(metaRobot != null){
-            element.getParent().insertAfter(element, createMetaTagElement("robot", metaRobot));
+            element.getParent().insertAfter(element, createMetaTagElement("robots", metaRobot));
         }
         if(metaKeywords != null){
             element.getParent().insertAfter(element, createMetaTagElement("keywords", metaKeywords));
